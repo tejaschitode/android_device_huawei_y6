@@ -19,6 +19,9 @@
 
 LOCAL_PATH := device/huawei/y6
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := Honor4a,honor4a,Honor4A,honor4A
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8909
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno304

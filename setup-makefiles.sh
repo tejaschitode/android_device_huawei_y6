@@ -220,7 +220,7 @@ include \$(BUILD_PREBUILT)
 #LOCAL_MODULE_TAGS := optional
 #LOCAL_MODULE_SUFFIX := .so
 #LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-i#nclude \$(BUILD_PREBUILT)
+#include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libtime_genoff
