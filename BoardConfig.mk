@@ -20,7 +20,7 @@
 LOCAL_PATH := device/huawei/y6
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Honor4a,honor4a,Honor4A,honor4A
+TARGET_OTA_ASSERT_DEVICE := Honor4a,honor4a,Honor4A,honor4A,y6,Y6
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8909
