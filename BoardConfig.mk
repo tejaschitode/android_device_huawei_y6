@@ -69,7 +69,8 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
-BOARD_HARDWARE_CLASS := device/huawei/y6/cmhw
+BOARD_HARDWARE_CLASS := \
+    device/huawei/y6/cmhw
 
 # Enables CSVT
 TARGET_USES_CSVT := true
@@ -117,6 +118,9 @@ BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_SOURCE := kernel/huawei/msm8909
 TARGET_KERNEL_CONFIG := rel_defconfig
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # Logging
 TARGET_USES_LOGD := false
@@ -195,7 +199,7 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # TWRP
-RECOVERY_VARIANT := twrp
+#RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
@@ -216,14 +220,12 @@ PRIMA_MODULE:
 	$(hide) arm-eabi-strip --strip-debug $(KERNEL_OUT)/$(PRIMA_ROOT)/wlan.ko
 	$(hide) mkdir -p $(KERNEL_MODULES_OUT)/pronto
 	$(hide) cp -f $(KERNEL_OUT)/$(PRIMA_ROOT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
-	$(TARGET_KERNEL_SOURCE)/scripts/sign-file sha512 $(KERNEL_OUT)/signing_key.priv $(KERNEL_OUT)/signing_key.x509 $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
 	$(hide) if [ -L $(KERNEL_MODULES_OUT)/wlan.ko ]; then rm $(KERNEL_MODULES_OUT)/wlan.ko; fi
 	$(hide) ln -s /system/lib/modules/pronto/pronto_wlan.ko  $(KERNEL_MODULES_OUT)/wlan.ko
 TARGET_KERNEL_MODULES += PRIMA_MODULE
 
 CORE_CTL_MODULE:
 	$(hide) cp -rf $(LOCAL_PATH)/core_ctl.ko $(KERNEL_MODULES_OUT)/
-	$(TARGET_KERNEL_SOURCE)/scripts/sign-file sha512 $(KERNEL_OUT)/signing_key.priv $(KERNEL_OUT)/signing_key.x509 $(KERNEL_MODULES_OUT)/core_ctl.ko
 TARGET_KERNEL_MODULES +=  CORE_CTL_MODULE
 
 

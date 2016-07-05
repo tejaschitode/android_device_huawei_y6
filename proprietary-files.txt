@@ -52,6 +52,8 @@ bin/mm-pp-daemon
 bin/test_diag
 bin/vm_bms
 bin/adsprpcd
+bin/fm_qsoc_patches
+bin/fmconfig
 framework/qcnvitems.jar
 framework/qcrilhook.jar
 vendor/etc/calmodule.cfg
@@ -266,3 +268,5 @@ lib/hw/camera.msm8909.omron.so
 lib/libdrmdecrypt.so
 lib/liboeminfo.so
 lib/librmnetctl.so
+lib/libqcomfm_jni.so
+
